@@ -89,6 +89,36 @@ public class Prestasi {
     }
 
     public static void main(String[] args) {
-
+        String prestasi[][] = new String[4][9999999];
+        int tahun_prestasi[] = new int[9999999];
+        int pilihan = 0;
+        do {
+            System.out.println("======================================");
+            System.out.println("=                MENU                =");
+            System.out.println("======================================");
+            System.out.println("1. Input Prestasi");
+            System.out.println("2. Output Prestasi");
+            System.out.println("3. Analisis Prestasi");
+            System.out.println("4. Keluar");
+            System.out.print("Pilihan: ");
+            pilihan = sc.nextInt();
+            sc.nextLine();
+            switch (pilihan) {
+                case 1:
+                    inputPrestasi(prestasi, tahun_prestasi);
+                    break;
+                case 2:
+                    outputPrestasi(prestasi, tahun_prestasi);
+                    break;
+                case 3:
+                    analisisPrestasi(prestasi, tahun_prestasi);
+                    break;
+                case 4:
+                    break;
+                default:
+                    System.out.println("Pilihan tidak tersedia");
+                    break;
+            }
+        } while (pilihan != 4);
     }    
 }
