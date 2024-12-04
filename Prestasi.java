@@ -35,8 +35,34 @@ public class Prestasi {
         counter++;
     }
 
-    public static void outputPrestasi(String arr[][]){
-        
+    public static void outputPrestasi(String arr[][], int tahun_prestasi[]){
+        System.out.println("======================================");
+        System.out.println("=     Mencetak Prestasi Mahasiswa    =");
+        System.out.println("======================================");
+        if(counter != 0)
+        {
+            for (int i = 0; i < counter; i++) {
+                for (int j = 0; j < 4; j++) {
+                    switch (j) {
+                        case 0:
+                            System.out.print("> |Nama: " + arr[0][i] + " |\t|");
+                            break;
+                        case 1:
+                            System.out.print("NIM: " + arr[1][i] + " |\t|");
+                            break;
+                        case 2:
+                            System.out.print("Jenis: " + arr[2][i] + " |\t|");
+                            break;
+                        case 3:
+                            System.out.print("Tingkat: " + arr[3][i] + " |\t|");
+                            break;
+                    }
+                }
+                System.out.print("Tahun: " + tahun_prestasi[i] + " |\n");
+            }
+        }else{
+            System.out.println("=== Data Prestasi Kosong ===");
+        }
     }
 
     public static String[] analisisPrestasi(int arr[][]){
