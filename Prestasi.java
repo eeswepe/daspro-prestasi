@@ -65,8 +65,27 @@ public class Prestasi {
         }
     }
 
-    public static String[] analisisPrestasi(int arr[][]){
-        return null;
+    public static void analisisPrestasi(String arr[][], int tahun_prestasi[]){
+        System.out.println("==== Program Mencari Jenis Prestasi Mahasiswa ====");
+        System.out.print("> Masukkan jenis prestasi yang ingin dicari: ");
+        String cari = sc.nextLine();
+        boolean ketemu = false;
+        System.out.print("> Masukkan tahun prestasi yang ingin dicari (Masukkan 0 untuk menampilkan semua): ");
+        int tahun = sc.nextInt();
+        for(int i=0;i<counter;i++){
+            if(arr[2][i].equalsIgnoreCase(cari)){
+                if(tahun==0){
+                    System.out.print("-> Prestasi " + cari + " didapatkan oleh " + arr[0][i] + " dengan NIM " + arr[1][i] + " pada tahun " + tahun_prestasi[i] + "\n");
+                    ketemu = true;
+                }else if(tahun_prestasi[i] == tahun){
+                    System.out.print("-> Prestasi " + cari + " didapatkan oleh " + arr[0][i] + " dengan NIM " + arr[1][i] + " pada tahun " + tahun_prestasi[i] + "\n");
+                    ketemu = true;
+                }
+            }
+        }
+        if(!ketemu){
+            System.out.print("Prestasi dengan tahun yang sesuai tidak ditemukan\n");
+        }
     }
 
     public static void main(String[] args) {
