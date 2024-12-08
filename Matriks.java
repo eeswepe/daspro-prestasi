@@ -107,7 +107,7 @@ public class Matriks {
 
     public static int determinan3(int arr[][]) {
         int det = 0;
-        for(int i=0;i<3;i++){
+        for(int i=0;     i<3;i++){
             int temp = 1;
             for(int j=0;j<3;j++){
                 temp *= arr[j][(i+j)%3];
@@ -195,48 +195,43 @@ public class Matriks {
 
         int[][] matriks = new int[baris][kolom];
         
-        for(int i=0;i<baris;i++){
-            for(int j=0;j<kolom;j++){
-                System.out.print("matriks[" + i + "][" + j + "]: ");
-                matriks[i][j] = sc.nextInt();
-            }
-        }
+       inputMatriks(matriks, "matriks : ");
 
         if(baris == 3){
             double res[][] = new double[3][3];
             int det = determinan3(matriks);
             if (det == 0) {
                 System.out.println("Matriks tidak memiliki inverse");
-            } else {
-                int kofaktor[][] = kofaktor3(matriks);
-                double adj[][] = getAdjoint3(kofaktor);
-    
-                System.out.println("Hasil Inverse Matriks: ");
-                for(int i=0;i<3;i++){
-                    for(int j=0;j<3;j++){
-                        res[i][j] = adj[i][j] / det;
-                        System.out.printf("| %.2f ", res[i][j]);
-                    }
-                    System.out.println();
+                return;
+            } 
+            int kofaktor[][] = kofaktor3(matriks);
+            double adj[][] = getAdjoint3(kofaktor);
+
+            System.out.println("Hasil Inverse Matriks: ");
+            for(int i=0;i<3;i++){
+                for(int j=0;j<3;j++){
+                    res[i][j] = adj[i][j] / det;
+                    System.out.printf("| %.2f ", res[i][j]);
                 }
-                
+                System.out.println();
             }
         }else if(baris == 2){
-            int res[][] = new int[2][2];
+            double res[][] = new double[2][2];
             int det = determinan2(matriks);
             if(det == 0){
                 System.out.println("Matriks tidak memiliki inverse");
-            }else{
-                int adj[][] = getAdjoint2(matriks);
-                System.out.println("Hasil Inverse Matriks: ");
-                for(int i=0;i<2;i++){
-                    for(int j=0;j<2;j++){
-                        res[i][j] = adj[i][j] / det;
-                        System.out.printf("%.2f ", (float)res[i][j]/det);
-                    }
-                    System.out.println();
-                }
+                return;
             }
+            int adj[][] = getAdjoint2(matriks);
+            System.out.println("Hasil Inverse Matriks: ");
+            for(int i=0;i<2;i++){
+                for(int j=0;j<2;j++){
+                    res[i][j] = adj[i][j] / det;
+                    System.out.printf("%.2f ", (float)res[i][j]);
+                }
+                System.out.println();
+            }
+            
         }
 
     }
