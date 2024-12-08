@@ -242,7 +242,7 @@ public class Matriks {
         System.out.print("Masukkan jumlah baris: ");
         int baris = sc.nextInt();
         System.out.print("Masukkan jumlah kolom: ");
-        int kolom = sc.nextInt();
+        int kolom = sc.nextInt();   
 
         int[][] matriks = new int[baris][kolom];
         int[][] transpose = new int[kolom][baris];
@@ -297,6 +297,6 @@ public class Matriks {
                     System.out.println("Pilihan tidak tersedia");
                     break;
             }
-        } while (pilihan != 5);
+        } while (pilihan > 0 && pilihan < 6);
     }
 }
