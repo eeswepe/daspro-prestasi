@@ -107,7 +107,7 @@ public class Matriks {
 
     public static int determinan3(int arr[][]) {
         int det = 0;
-        for(int i=0;     i<3;i++){
+        for(int i=0;i<3;i++){
             int temp = 1;
             for(int j=0;j<3;j++){
                 temp *= arr[j][(i+j)%3];
