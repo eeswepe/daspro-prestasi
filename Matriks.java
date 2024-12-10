@@ -15,26 +15,35 @@ public class Matriks {
     public static void penjumlahan() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Masukkan jumlah baris: ");
-        int baris = sc.nextInt();
-        System.out.print("Masukkan jumlah kolom: ");
-        int kolom = sc.nextInt();
+        System.out.print("Masukkan jumlah baris matriks 1: ");
+        int baris1 = sc.nextInt();
+        System.out.print("Masukkan jumlah kolom matriks 1: ");
+        int kolom1 = sc.nextInt();
+        System.out.print("Masukkan jumlah baris matriks 2: ");
+        int baris2 = sc.nextInt();
+        System.out.print("Masukkan jumlah kolom matriks 2: ");
+        int kolom2 = sc.nextInt();
 
-        int[][] matriks1 = new int[baris][kolom];
-        int[][] matriks2 = new int[baris][kolom];
-        int[][] hasil = new int[baris][kolom];
+        if (baris1 != baris2 || kolom1 != kolom2) {
+            System.out.println("Penjumlahan tidak dapat dilakukan!");
+            return;
+        }
+
+        int[][] matriks1 = new int[baris1][kolom1];
+        int[][] matriks2 = new int[baris2][kolom2];
+        int[][] hasil = new int[baris1][kolom1];
 
         inputMatriks(matriks1, "matriks pertama : ");
         inputMatriks(matriks2, "matriks kedua : ");
 
-        for (int i = 0; i < baris; i++) {
-            for (int j = 0; j < kolom; j++) {
+        for (int i = 0; i < baris1; i++) {
+            for (int j = 0; j < kolom1; j++) {
                 hasil[i][j] = matriks1[i][j] + matriks2[i][j];
             }
         }
         System.out.println("Hasil penjumlahan matriks:");
-        for (int i = 0; i < baris; i++) {
-            for (int j = 0; j < kolom; j++) {
+        for (int i = 0; i < baris1; i++) {
+            for (int j = 0; j < kolom1; j++) {
                 System.out.print(hasil[i][j] + " ");
             }
             System.out.println();
@@ -44,26 +53,36 @@ public class Matriks {
     public static void pengurangan() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Masukkan jumlah baris: ");
-        int baris = sc.nextInt();
-        System.out.print("Masukkan jumlah kolom: ");
-        int kolom = sc.nextInt();
 
-        int[][] matriks1 = new int[baris][kolom];
-        int[][] matriks2 = new int[baris][kolom];
-        int[][] hasil = new int[baris][kolom];
+        System.out.print("Masukkan jumlah baris matriks 1: ");
+        int baris1 = sc.nextInt();
+        System.out.print("Masukkan jumlah kolom matriks 1: ");
+        int kolom1 = sc.nextInt();
+        System.out.print("Masukkan jumlah baris matriks 2: ");
+        int baris2 = sc.nextInt();
+        System.out.print("Masukkan jumlah kolom matriks 2: ");
+        int kolom2 = sc.nextInt();
+
+        if (baris1 != baris2 || kolom1 != kolom2) {
+            System.out.println("Pengurangan tidak dapat dilakukan!");
+            return;
+        }
+
+        int[][] matriks1 = new int[baris1][kolom1];
+        int[][] matriks2 = new int[baris2][kolom2];
+        int[][] hasil = new int[baris1][kolom1];
 
         inputMatriks(matriks1, "matriks pertama : ");
         inputMatriks(matriks2, "matriks kedua : ");
 
-        for (int i = 0; i < baris; i++) {
-            for (int j = 0; j < kolom; j++) {
+        for (int i = 0; i < baris1; i++) {
+            for (int j = 0; j < kolom1; j++) {
                 hasil[i][j] = matriks1[i][j] - matriks2[i][j];
             }
         }
         System.out.println("Hasil pengurangan adalah ");
-        for (int i = 0; i < baris; i++) {
-            for (int j = 0; j < kolom; j++) {
+        for (int i = 0; i < baris1; i++) {
+            for (int j = 0; j < kolom1; j++) {
                 System.out.print(hasil[i][j] + " ");
             }
             System.out.println();
@@ -73,28 +92,33 @@ public class Matriks {
     public static void perkalian() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Masukkan jumlah baris: ");
-        int baris = sc.nextInt();
-        System.out.print("Masukkan jumlah kolom: ");
-        int kolom = sc.nextInt();
+        System.out.print("Masukkan jumlah baris matriks 1: ");
+        int baris1 = sc.nextInt();
+        System.out.print("Masukkan jumlah kolom matriks 1: ");
+        int kolom1 = sc.nextInt();
 
-        int[][] matriks1 = new int[baris][kolom];
-        int[][] matriks2 = new int[baris][kolom];
-        int[][] hasil = new int[baris][kolom];
+        System.out.print("Masukkan jumlah baris matrik 2: ");
+        int baris2 = sc.nextInt();
+        System.out.print("Masukkan jumlah kolom matriks 2: ");
+        int kolom2 = sc.nextInt();
+
+        int[][] matriks1 = new int[baris1][kolom1];
+        int[][] matriks2 = new int[baris2][kolom2];
+        int[][] hasil = new int[baris1][kolom2];
 
         inputMatriks(matriks1, "matriks pertama : ");
         inputMatriks(matriks2, "matriks kedua : ");
 
-        for (int i = 0; i < baris; i++) {
-            for (int j = 0; j < kolom; j++) {
-                for (int k = 0; k < baris; k++) {
+        for (int i = 0; i < baris1; i++) {
+            for (int j = 0; j < kolom2; j++) {
+                for (int k = 0; k < kolom1; k++) {
                     hasil[i][j] += matriks1[i][k] * matriks2[k][j];
                 }
             }
         }
         System.out.println("Hasil perkalian adalah ");
-        for (int i = 0; i < baris; i++) {
-            for (int j = 0; j < kolom; j++) {
+        for (int i = 0; i < baris1; i++) {
+            for (int j = 0; j < kolom2; j++) {
                 System.out.print(hasil[i][j] + " ");
             }
             System.out.println();
@@ -107,35 +131,35 @@ public class Matriks {
 
     public static int determinan3(int arr[][]) {
         int det = 0;
-        for(int i=0;     i<3;i++){
+        for (int i = 0; i < 3; i++) {
             int temp = 1;
-            for(int j=0;j<3;j++){
-                temp *= arr[j][(i+j)%3];
+            for (int j = 0; j < 3; j++) {
+                temp *= arr[j][(i + j) % 3];
             }
-            det+=temp;
+            det += temp;
         }
 
-        for(int i=0;i<3;i++){
+        for (int i = 0; i < 3; i++) {
             int dec = 0;
             int temp = 1;
-            for(int j=3-1;j>=0;j--){
-                temp *= arr[j][(i+dec)%3];
+            for (int j = 3 - 1; j >= 0; j--) {
+                temp *= arr[j][(i + dec) % 3];
                 dec++;
             }
-            det-=temp;
+            det -= temp;
         }
 
         return det;
     }
-    
+
     public static int[][] kofaktor3(int arr[][]) {
         int kofaktor[][] = new int[3][3];
-        for(int i=0;i<3;i++){
-            for(int j=0;j<3;j++){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 int[][] temp = new int[2][2];
                 int indexRow = 0, indexCol = 0;
-                for(int k=0;k<3;k++){
-                    for(int l=0;l<3;l++){
+                for (int k = 0; k < 3; k++) {
+                    for (int l = 0; l < 3; l++) {
                         if (k != i && l != j) {
                             temp[indexRow][indexCol++] = arr[k][l];
                             if (indexCol == 2) {
@@ -150,7 +174,7 @@ public class Matriks {
         }
         return kofaktor;
     }
-    
+
     public static int[][] getAdjoint2(int arr[][]) {
         int a = arr[0][0];
         int b = arr[0][1];
@@ -167,8 +191,8 @@ public class Matriks {
 
     public static double[][] getAdjoint3(int arr[][]) {
         double adj[][] = new double[3][3];
-        for(int i=0;i<3;i++){
-            for(int j=0;j<3;j++){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 adj[i][j] = arr[j][i];
             }
         }
@@ -194,44 +218,46 @@ public class Matriks {
         }
 
         int[][] matriks = new int[baris][kolom];
-        
-       inputMatriks(matriks, "matriks : ");
 
-        if(baris == 3){
+        inputMatriks(matriks, "matriks : ");
+
+        if (baris == 3) {
             double res[][] = new double[3][3];
             int det = determinan3(matriks);
             if (det == 0) {
                 System.out.println("Matriks tidak memiliki inverse");
                 return;
-            } 
+            }
             int kofaktor[][] = kofaktor3(matriks);
             double adj[][] = getAdjoint3(kofaktor);
 
             System.out.println("Hasil Inverse Matriks: ");
-            for(int i=0;i<3;i++){
-                for(int j=0;j<3;j++){
+            for (int i = 0; i < 3; i++) {
+                System.out.print(" | ");
+                for (int j = 0; j < 3; j++) {
                     res[i][j] = adj[i][j] / det;
-                    System.out.printf("| %.2f ", res[i][j]);
+                    System.out.printf("%.2f ", res[i][j]);
                 }
+                System.out.print(" | ");
                 System.out.println();
             }
-        }else if(baris == 2){
+        } else if (baris == 2) {
             double res[][] = new double[2][2];
             int det = determinan2(matriks);
-            if(det == 0){
+            if (det == 0) {
                 System.out.println("Matriks tidak memiliki inverse");
                 return;
             }
             int adj[][] = getAdjoint2(matriks);
             System.out.println("Hasil Inverse Matriks: ");
-            for(int i=0;i<2;i++){
-                for(int j=0;j<2;j++){
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 2; j++) {
                     res[i][j] = adj[i][j] / det;
-                    System.out.printf("%.2f ", (float)res[i][j]);
+                    System.out.printf("%.2f ", (float) res[i][j]);
                 }
                 System.out.println();
             }
-            
+
         }
 
     }
@@ -242,13 +268,13 @@ public class Matriks {
         System.out.print("Masukkan jumlah baris: ");
         int baris = sc.nextInt();
         System.out.print("Masukkan jumlah kolom: ");
-        int kolom = sc.nextInt();   
+        int kolom = sc.nextInt();
 
         int[][] matriks = new int[baris][kolom];
         int[][] transpose = new int[kolom][baris];
 
-        inputMatriks(matriks,"matriks");
-        
+        inputMatriks(matriks, "matriks");
+
         for (int i = 0; i < baris; i++) {
             for (int j = 0; j < kolom; j++) {
                 transpose[j][i] = matriks[i][j];
