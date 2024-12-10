@@ -12,6 +12,49 @@ public class Matriks {
         }
     }
 
+    public static void outputMatriks(int matriks[][]) {
+        for (int i = 0; i < matriks.length; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < matriks[0].length; j++) {
+                System.out.print(matriks[i][j] + " ");
+            }
+            System.out.print(" |");
+            System.out.println();
+        }
+    }
+
+    public static void outputMatriks(int matriks[][], int matriks2[][], int matriks3[][], String operator) {
+        for(int i=0;i<matriks.length;i++){
+            System.out.print(" | ");
+            for(int j=0;j<matriks[0].length;j++){
+                System.out.print("" + matriks[i][j] + " ");
+            }
+            System.out.print(" |");
+            if(i==matriks.length/2){
+                System.out.print(" " + operator + " ");
+            }else{
+                System.out.print("   ");
+            }
+            System.out.print(" | ");
+            for(int j=0;j<matriks2[0].length;j++){
+                System.out.print("" + matriks2[i][j] + " ");
+            }
+            System.out.print(" | ");
+            if(i==matriks.length/2){
+                System.out.print(" = ");
+            }else{
+                System.out.print("   ");
+            }
+            System.out.print(" | ");
+            for(int j=0;j<matriks2[0].length;j++){
+                System.out.print("" + matriks3[i][j] + " ");
+            }
+            System.out.print(" | ");
+
+            System.out.println();
+        }
+    }
+
     public static void penjumlahan() {
         Scanner sc = new Scanner(System.in);
 
@@ -34,12 +77,7 @@ public class Matriks {
         }
 
         System.out.println("Hasil penjumlahan matriks:");
-        for (int i = 0; i < baris; i++) {
-            for (int j = 0; j < kolom; j++) {
-                System.out.print(hasil[i][j] + " ");
-            }
-            System.out.println();
-        }
+        outputMatriks(matriks1, matriks2, hasil, "+");
     }
 
     public static void pengurangan() {
@@ -63,12 +101,7 @@ public class Matriks {
             }
         }
         System.out.println("Hasil pengurangan adalah ");
-        for (int i = 0; i < baris; i++) {
-            for (int j = 0; j < kolom; j++) {
-                System.out.print(hasil[i][j] + " ");
-            }
-            System.out.println();
-        }
+        outputMatriks(matriks1, matriks2, hasil, "-");
     }
 
     public static void perkalian() {
@@ -105,12 +138,7 @@ public class Matriks {
             }
         }
         System.out.println("Hasil perkalian adalah ");
-        for (int i = 0; i < baris1; i++) {
-            for (int j = 0; j < kolom2; j++) {
-                System.out.print(hasil[i][j] + " ");
-            }
-            System.out.println();
-        }
+        outputMatriks(hasil);
     }
 
     public static int determinan2(int arr[][]) {
@@ -163,13 +191,13 @@ public class Matriks {
         return kofaktor;
     }
 
-    public static int[][] getAdjoint2(int arr[][]) {
+    public static double[][] getAdjoint2(int arr[][]) {
         int a = arr[0][0];
         int b = arr[0][1];
         int c = arr[1][0];
         int d = arr[1][1];
 
-        int adj[][] = new int[2][2];
+        double adj[][] = new double[2][2];
         adj[0][0] = d;
         adj[0][1] = -b;
         adj[1][0] = -c;
@@ -236,7 +264,7 @@ public class Matriks {
                 System.out.println("Matriks tidak memiliki inverse");
                 return;
             }
-            int adj[][] = getAdjoint2(matriks);
+            double adj[][] = getAdjoint2(matriks);
             System.out.println("Hasil Inverse Matriks: ");
             for (int i = 0; i < 2; i++) {
                 for (int j = 0; j < 2; j++) {
@@ -269,12 +297,7 @@ public class Matriks {
             }
         }
         System.out.println("Hasil transpose adalah ");
-        for (int i = 0; i < kolom; i++) {
-            for (int j = 0; j < baris; j++) {
-                System.out.print(transpose[i][j] + " ");
-            }
-            System.out.println();
-        }
+        outputMatriks(transpose);
     }
 
     public static void main(String[] args) {
